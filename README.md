@@ -1,5 +1,5 @@
 # dataset.tools
-![Build Status](https://api.travis-ci.org/jschr/electron-react-redux-boilerplate.svg)
+![Build Status](https://github.com/PhiDataKappa/dataset.electron)
 ![dependencies Status](https://david-dm.org/jschr/electron-react-redux-boilerplate/status.svg)
 ![devDependencies Status](https://david-dm.org/jschr/electron-react-redux-boilerplate/dev-status.svg)
 
