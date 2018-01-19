@@ -1,11 +1,15 @@
 import path from 'path';
 import url from 'url';
-import {app, crashReporter, BrowserWindow, Menu} from 'electron';
+import {app, crashReporter, BrowserWindow, Menu, Tray, ipcMain, nativeImage} from 'electron';
 
 const isDevelopment = (process.env.NODE_ENV === 'development');
 
 let mainWindow = null;
 let forceQuit = false;
+
+let tray = null;
+let trayIcon = nativeImage.createFromPath('Resources/datasetTools_tray_icon_menuIsVisible.png')
+
 
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer');
@@ -43,12 +47,15 @@ app.on('ready', async () => {
     await installExtensions();
   }
 
-  mainWindow = new BrowserWindow({ 
-    width: 1000, 
-    height: 800,
-    minWidth: 640,
-    minHeight: 480,
-    show: false 
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    minWidth: 540,
+    minHeight: 360,
+    resizable: true,
+    show: false
+    frame: true,
+    titleBarStyle: 'hiddenInset'
   });
 
   mainWindow.loadURL(url.format({
@@ -78,7 +85,7 @@ app.on('ready', async () => {
       app.on('activate', () => {
         mainWindow.show();
       });
-      
+
       app.on('before-quit', () => {
         forceQuit = true;
       });

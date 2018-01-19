@@ -1,6 +1,6 @@
 # dataset.tools
-Collect, view, and manage your data.world datasets.
-http://dataset.tools
+
+download http://dataset.tools
 
 ![Build Status](https://api.travis-ci.org/jschr/electron-react-redux-boilerplate.svg)
 ![dependencies Status](https://david-dm.org/jschr/electron-react-redux-boilerplate/status.svg)
