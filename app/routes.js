@@ -1,17 +1,15 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
-
-import LoginPage from './containers/LoginPage';
-import LoggedInPage from './containers/LoggedInPage';
-
 import App from './containers/App';
-import CounterPage from './containers/CounterPage';
-import MainPage from './containers/mainpage';
+import HomePage from './containers/HomePage';
+import MainPage from './containers/MainPage';
+
 
 export default (
-  <Switch>
-    <Route exact path="/" component={LoginPage} />
-    <Route exact path="/loggedin" component={LoggedInPage} />
-    <Route  exact path="/mainpage" component={MainPage} />
-  </Switch>
+  <App>
+    <Switch>
+      <Route exact path="/mainpage" component={MainPage} />
+      <Route exact path="/" component={HomePage} />
+    </Switch>
+  </App>
 );

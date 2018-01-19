@@ -23,4 +23,3 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = (0, _reduxActions.handleActions)((0, _defineProperty3.default)({}, _user2.default.login, function (state, action) {
   return (0, _extends3.default)({}, state, action.payload);
 }), {});
-//# sourceMappingURL=user.js.map

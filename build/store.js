@@ -22,27 +22,22 @@ var _reduxThunk = require('redux-thunk');
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _user = require('./reducers/user');
+var _homepage = require('./actions/homepage.js');
 
-var _user2 = _interopRequireDefault(_user);
+var homeActions = _interopRequireWildcard(_homepage);
 
-var _user3 = require('./actions/user');
+var _reducers = require('./reducers');
 
-var _user4 = _interopRequireDefault(_user3);
+var _reducers2 = _interopRequireDefault(_reducers);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function configureStore(initialState, routerHistory) {
   var router = (0, _reactRouterRedux.routerMiddleware)(routerHistory);
 
-  var actionCreators = (0, _extends3.default)({}, _user4.default, {
-    push: _reactRouterRedux.push
-  });
-
-  var reducers = {
-    user: _user2.default,
-    routing: _reactRouterRedux.routerReducer
-  };
+  var actionCreators = (0, _extends3.default)({}, _reactRouterRedux.routerActions, homeActions);
 
   var middlewares = [_reduxThunk2.default, router];
 
@@ -55,8 +50,6 @@ function configureStore(initialState, routerHistory) {
   }();
 
   var enhancer = composeEnhancers(_redux.applyMiddleware.apply(undefined, middlewares), (0, _reduxLocalstorage2.default)());
-  var rootReducer = (0, _redux.combineReducers)(reducers);
 
-  return (0, _redux.createStore)(rootReducer, initialState, enhancer);
+  return (0, _redux.createStore)(_reducers2.default, initialState, enhancer);
 }
-//# sourceMappingURL=store.js.map
